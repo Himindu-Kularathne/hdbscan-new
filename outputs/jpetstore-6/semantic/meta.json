@@ -1,0 +1,15 @@
+{
+  "repo": "jpetstore-6",
+  "num_classes": 27,
+  "tfidf_shape": [
+    27,
+    43
+  ],
+  "sim_sem_shape": [
+    27,
+    27
+  ],
+  "semantic_format": "WIDE",
+  "empty_docs": null,
+  "tfidf_top_k": 10
+}
