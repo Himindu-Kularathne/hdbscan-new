@@ -1,0 +1,405 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "JPetStore-6 Data Format Schemas",
+  "description": "JSON Schema definitions for all JPetStore-6 analysis data formats",
+  
+  "definitions": {
+    
+    "TypeDataObject": {
+      "type": "object",
+      "description": "Complete type/class definition from static analysis",
+      "required": [
+        "isInterface",
+        "isImplicit",
+        "isAnnotation",
+        "isAnonymous",
+        "simpleName",
+        "fullName",
+        "referencedTypes",
+        "fieldTypes",
+        "parameterTypes",
+        "returnTypes",
+        "inheritedTypes",
+        "constructors",
+        "methods"
+      ],
+      "properties": {
+        "isInterface": {
+          "type": "boolean",
+          "description": "Whether this type is an interface"
+        },
+        "isImplicit": {
+          "type": "boolean",
+          "description": "Whether this is an implicit/synthetic class"
+        },
+        "isAnnotation": {
+          "type": "boolean",
+          "description": "Whether this is an annotation type"
+        },
+        "isAnonymous": {
+          "type": "boolean",
+          "description": "Whether this is an anonymous inner class"
+        },
+        "simpleName": {
+          "type": "string",
+          "description": "Unqualified class name (e.g., 'Account')",
+          "examples": ["Account", "Order", "CartTest"]
+        },
+        "fullName": {
+          "type": "string",
+          "description": "Fully qualified class name",
+          "examples": ["org.mybatis.jpetstore.domain.Account"]
+        },
+        "referencedTypes": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "All types referenced by this class",
+          "examples": [["org.mybatis.jpetstore.domain.Account", "java.lang.String", "boolean"]]
+        },
+        "fieldTypes": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Types of all fields in this class",
+          "examples": [["long", "java.lang.String", "java.util.List"]]
+        },
+        "parameterTypes": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Types of all method parameters",
+          "examples": [["java.lang.String", "int", "boolean"]]
+        },
+        "returnTypes": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Return types of all methods",
+          "examples": [["void", "java.lang.String", "java.util.List"]]
+        },
+        "inheritedTypes": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Parent classes and implemented interfaces",
+          "examples": [["java.io.Serializable", "java.lang.Cloneable"]]
+        },
+        "nestedTypes": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Inner classes and nested types"
+        },
+        "fieldCalls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["invokingObject", "invokingMethod", "invokedObject", "invokedMethod", "local"],
+            "properties": {
+              "invokingObject": {
+                "type": "string",
+                "description": "Class that makes the call"
+              },
+              "invokingMethod": {
+                "type": "string",
+                "description": "Method that makes the call (or $$FIELDCALL$$)"
+              },
+              "invokedObject": {
+                "type": "string",
+                "description": "Class being invoked (typically a utility like Collections)"
+              },
+              "invokedMethod": {
+                "type": "string",
+                "description": "Static method being called (with signature)"
+              },
+              "local": {
+                "type": "boolean",
+                "description": "Whether it's a local call"
+              }
+            }
+          },
+          "description": "Inter-field method invocations"
+        },
+        "constructors": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Constructor signatures",
+          "examples": [["org.mybatis.jpetstore.domain.Account()", "org.mybatis.jpetstore.domain.LineItem(int,org.mybatis.jpetstore.domain.CartItem)"]]
+        },
+        "methods": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Method signatures",
+          "examples": [["getUsername()", "setPassword(java.lang.String)", "equals(java.lang.Object)"]]
+        },
+        "textAndNames": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "All identifiers: field names, method names, variable names (for debugging)"
+        }
+      }
+    },
+
+    "ClassPerBCSEntry": {
+      "type": "object",
+      "description": "Dynamic analysis: test method mapped to accessed classes",
+      "additionalProperties": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "List of fully qualified class names accessed in this method"
+      },
+      "example": {
+        "OrderActionBeanTest_getOrderListOutputNull()": [
+          "org.mybatis.jpetstore.web.actions.OrderActionBeanTest",
+          "org.mybatis.jpetstore.web.actions.OrderActionBean"
+        ],
+        "CartTest_addItemWhenIsInStockIsTrue()": [
+          "org.mybatis.jpetstore.domain.CartTest",
+          "org.mybatis.jpetstore.domain.Item",
+          "org.mybatis.jpetstore.domain.Cart",
+          "org.mybatis.jpetstore.domain.CartItem"
+        ]
+      }
+    },
+
+    "WordCountRecord": {
+      "type": "object",
+      "description": "Semantic analysis: word frequency in a class (Parquet format)",
+      "properties": {
+        "class_name": {
+          "type": "string",
+          "description": "Fully qualified class name"
+        },
+        "word": {
+          "type": "string",
+          "description": "Semantic token/word from source code or documentation"
+        },
+        "count": {
+          "type": "integer",
+          "description": "Frequency of this word in the class"
+        }
+      },
+      "example": {
+        "class_name": "org.mybatis.jpetstore.domain.Account",
+        "word": "password",
+        "count": 5
+      }
+    },
+
+    "ClassInteractionRecord": {
+      "type": "object",
+      "description": "Structural analysis: class-to-class relationship (Parquet format)",
+      "properties": {
+        "source_class": {
+          "type": "string",
+          "description": "Fully qualified source class name"
+        },
+        "target_class": {
+          "type": "string",
+          "description": "Fully qualified target class name"
+        },
+        "interaction_type": {
+          "type": "string",
+          "enum": [
+            "inheritance",
+            "composition",
+            "dependency",
+            "aggregation",
+            "association",
+            "method_call"
+          ],
+          "description": "Type of relationship between classes"
+        },
+        "weight": {
+          "type": "number",
+          "description": "Coupling strength or interaction weight (0.0 to 1.0)"
+        },
+        "frequency": {
+          "type": "integer",
+          "description": "Number of times this interaction occurs"
+        }
+      },
+      "example": {
+        "source_class": "org.mybatis.jpetstore.domain.Order",
+        "target_class": "org.mybatis.jpetstore.domain.LineItem",
+        "interaction_type": "composition",
+        "weight": 1.0,
+        "frequency": 5
+      }
+    }
+  },
+
+  "root": {
+    "oneOf": [
+      {
+        "type": "array",
+        "items": {"$ref": "#/definitions/TypeDataObject"},
+        "description": "typeData.json: Array of type definitions"
+      },
+      {
+        "$ref": "#/definitions/ClassPerBCSEntry",
+        "description": "class_per_bcs.json: Map of test methods to accessed classes"
+      }
+    ]
+  },
+
+  "parquetSchemas": {
+    "class_word_count": {
+      "type": "object",
+      "description": "Schema for class_word_count.parquet (semantic data)",
+      "columns": [
+        {
+          "name": "class_name",
+          "type": "string",
+          "description": "Fully qualified class name"
+        },
+        {
+          "name": "word",
+          "type": "string",
+          "description": "Semantic token from code"
+        },
+        {
+          "name": "count",
+          "type": "int32",
+          "description": "Frequency count"
+        }
+      ]
+    },
+    "class_interactions": {
+      "type": "object",
+      "description": "Schema for class_interactions.parquet (structural data)",
+      "columns": [
+        {
+          "name": "source_class",
+          "type": "string",
+          "description": "Source class full name"
+        },
+        {
+          "name": "target_class",
+          "type": "string",
+          "description": "Target class full name"
+        },
+        {
+          "name": "interaction_type",
+          "type": "string",
+          "description": "Type of interaction"
+        },
+        {
+          "name": "weight",
+          "type": "double",
+          "description": "Coupling strength"
+        },
+        {
+          "name": "frequency",
+          "type": "int32",
+          "description": "Interaction frequency"
+        }
+      ]
+    }
+  },
+
+  "classificationPatterns": {
+    "domainClass": {
+      "description": "Pattern for domain model classes",
+      "conditions": [
+        "fullName contains 'domain'",
+        "isInterface = false",
+        "!simpleName.endsWith('Test')"
+      ],
+      "examples": [
+        "org.mybatis.jpetstore.domain.Account",
+        "org.mybatis.jpetstore.domain.Order",
+        "org.mybatis.jpetstore.domain.Cart"
+      ]
+    },
+    "mapperInterface": {
+      "description": "Pattern for MyBatis mapper interfaces",
+      "conditions": [
+        "fullName contains 'mapper'",
+        "isInterface = true",
+        "simpleName.endsWith('Mapper')"
+      ],
+      "examples": [
+        "org.mybatis.jpetstore.mapper.AccountMapper",
+        "org.mybatis.jpetstore.mapper.OrderMapper"
+      ]
+    },
+    "serviceClass": {
+      "description": "Pattern for business logic service classes",
+      "conditions": [
+        "fullName contains 'service'",
+        "isInterface = false",
+        "simpleName.endsWith('Service')"
+      ],
+      "examples": [
+        "org.mybatis.jpetstore.service.AccountService",
+        "org.mybatis.jpetstore.service.OrderService"
+      ]
+    },
+    "actionBean": {
+      "description": "Pattern for Stripes web action beans",
+      "conditions": [
+        "fullName contains 'actions'",
+        "isInterface = false",
+        "simpleName.endsWith('ActionBean')"
+      ],
+      "examples": [
+        "org.mybatis.jpetstore.web.actions.AccountActionBean",
+        "org.mybatis.jpetstore.web.actions.OrderActionBean"
+      ]
+    },
+    "testClass": {
+      "description": "Pattern for test classes",
+      "conditions": [
+        "simpleName.endsWith('Test')",
+        "OR simpleName.endsWith('IT')"
+      ],
+      "examples": [
+        "org.mybatis.jpetstore.domain.AccountTest",
+        "org.mybatis.jpetstore.ScreenTransitionIT"
+      ]
+    }
+  },
+
+  "layerArchitecture": {
+    "presentation": {
+      "description": "Web/UI layer",
+      "packages": [
+        "org.mybatis.jpetstore.web.actions"
+      ],
+      "components": [
+        "ActionBean classes (Stripes framework)",
+        "Request handlers and page navigation"
+      ]
+    },
+    "business": {
+      "description": "Business logic layer",
+      "packages": [
+        "org.mybatis.jpetstore.service"
+      ],
+      "components": [
+        "Service classes",
+        "Orchestration of business operations",
+        "Transaction management"
+      ]
+    },
+    "data": {
+      "description": "Data access layer",
+      "packages": [
+        "org.mybatis.jpetstore.mapper",
+        "org.mybatis.jpetstore.analysis"
+      ],
+      "components": [
+        "MyBatis mapper interfaces",
+        "SQL query mappings",
+        "Database operations"
+      ]
+    },
+    "domain": {
+      "description": "Domain model layer",
+      "packages": [
+        "org.mybatis.jpetstore.domain"
+      ],
+      "components": [
+        "Business entities (Account, Order, Product, etc.)",
+        "Domain logic",
+        "Value objects"
+      ]
+    }
+  }
+}
