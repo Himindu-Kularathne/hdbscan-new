@@ -1,0 +1,20 @@
+{
+  "repo": "acmeair",
+  "alpha": 0.5,
+  "shape": [
+    84,
+    84
+  ],
+  "sem_minmax": [
+    0.0,
+    1.0
+  ],
+  "str_minmax": [
+    0.0,
+    1.0
+  ],
+  "comb_minmax": [
+    0.0,
+    1.0
+  ]
+}

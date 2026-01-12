@@ -1,0 +1,15 @@
+{
+  "repo": "plants",
+  "num_classes": 39,
+  "tfidf_shape": [
+    39,
+    40
+  ],
+  "sim_sem_shape": [
+    39,
+    39
+  ],
+  "semantic_format": "WIDE",
+  "empty_docs": null,
+  "tfidf_top_k": 10
+}

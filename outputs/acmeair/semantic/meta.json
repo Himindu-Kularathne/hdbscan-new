@@ -1,0 +1,15 @@
+{
+  "repo": "acmeair",
+  "num_classes": 84,
+  "tfidf_shape": [
+    84,
+    86
+  ],
+  "sim_sem_shape": [
+    84,
+    84
+  ],
+  "semantic_format": "WIDE",
+  "empty_docs": null,
+  "tfidf_top_k": 10
+}

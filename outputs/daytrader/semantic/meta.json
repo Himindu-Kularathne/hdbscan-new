@@ -1,0 +1,15 @@
+{
+  "repo": "daytrader",
+  "num_classes": 115,
+  "tfidf_shape": [
+    115,
+    118
+  ],
+  "sim_sem_shape": [
+    115,
+    115
+  ],
+  "semantic_format": "WIDE",
+  "empty_docs": null,
+  "tfidf_top_k": 10
+}
