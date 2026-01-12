@@ -65,3 +65,96 @@
 2026-01-05 13:39:57,334 | INFO | [jpetstore-6] Saved TF-IDF top terms per class to: /Users/himindu/Desktop/fyp/hdbscan-new/outputs/jpetstore-6/semantic/top_tfidf_per_class.json
 2026-01-05 13:39:57,334 | INFO | [jpetstore-6] DONE semantic pipeline in 0.12s
 2026-01-05 13:39:57,335 | INFO | ✔ Semantic analysis OK for jpetstore-6
+2026-01-12 10:36:32,508 | INFO | 
+▶ Running semantic pipeline for: jpetstore-6
+2026-01-12 10:36:32,508 | INFO | [jpetstore-6] STEP 1: Loading class universe...
+2026-01-12 10:36:32,510 | INFO | [jpetstore-6] Classes loaded: 27
+2026-01-12 10:36:32,510 | INFO | [jpetstore-6] STEP 2: Loading semantic parquet...
+2026-01-12 10:38:21,924 | INFO | 
+▶ Running semantic pipeline for: jpetstore-6
+2026-01-12 10:38:21,924 | INFO | [jpetstore-6] STEP 1: Loading class universe...
+2026-01-12 10:38:21,925 | INFO | [jpetstore-6] Classes loaded: 27
+2026-01-12 10:38:21,925 | INFO | [jpetstore-6] STEP 2: Loading semantic parquet...
+2026-01-12 10:38:22,472 | INFO | [jpetstore-6] Semantic rows: 43 | cols: ['org.mybatis.jpetstore.domain.Account', 'org.mybatis.jpetstore.domain.Cart', 'org.mybatis.jpetstore.domain.CartItem', 'org.mybatis.jpetstore.domain.CartTest', 'org.mybatis.jpetstore.domain.Category', 'org.mybatis.jpetstore.domain.Item', 'org.mybatis.jpetstore.domain.LineItem', 'org.mybatis.jpetstore.domain.Order', 'org.mybatis.jpetstore.domain.OrderTest', 'org.mybatis.jpetstore.domain.Product']...
+2026-01-12 10:38:22,473 | INFO | [jpetstore-6] Semantic index name: None | index type: <class 'pandas.core.indexes.range.RangeIndex'>
+2026-01-12 10:38:22,473 | INFO | [jpetstore-6] Detected semantic format: WIDE (terms x classes counts matrix)
+2026-01-12 10:38:22,473 | INFO | [jpetstore-6] Building TF-IDF (transformer from counts)...
+2026-01-12 10:38:22,479 | INFO | [jpetstore-6] TF-IDF shape: (27, 43)
+2026-01-12 10:38:22,479 | INFO | [jpetstore-6] Extracting top-10 TF-IDF terms for classes...
+2026-01-12 10:38:22,481 | INFO | [jpetstore-6] TF-IDF[MavenWrapperDownloader] -> 42:0.9999, 41:0.0099, 40:0.0061, 36:0.0034, 29:0.0028, 31:0.0020, 3:0.0012
+2026-01-12 10:38:22,481 | INFO | [jpetstore-6] TF-IDF[org.mybatis.jpetstore.ScreenTransitionIT] -> 40:0.9989, 3:0.0406, 42:0.0172, 36:0.0089, 12:0.0086, 11:0.0059
+2026-01-12 10:38:22,481 | INFO | [jpetstore-6] TF-IDF[org.mybatis.jpetstore.domain.Account] -> 0:0.9997, 33:0.0230
+2026-01-12 10:38:22,481 | INFO | [jpetstore-6] TF-IDF[org.mybatis.jpetstore.domain.Cart] -> 1:0.9260, 3:0.3052, 35:0.1656, 6:0.1223, 7:0.0667, 30:0.0361, 2:0.0334
+2026-01-12 10:38:22,482 | INFO | [jpetstore-6] TF-IDF[org.mybatis.jpetstore.domain.CartItem] -> 1:0.7104, 2:0.5404, 30:0.2923, 6:0.2702, 3:0.2119
+2026-01-12 10:38:22,484 | INFO | [jpetstore-6] Computing semantic similarity (cosine)...
+2026-01-12 10:38:22,485 | INFO | [jpetstore-6] Sim_sem shape: (27, 27) | diag mean: 1.000
+2026-01-12 10:38:22,488 | INFO | [jpetstore-6] Saved intermediates to: E:\hdbscan-new\outputs\jpetstore-6\semantic
+2026-01-12 10:38:22,488 | INFO | [jpetstore-6] Saved TF-IDF top terms per class to: E:\hdbscan-new\outputs\jpetstore-6\semantic\top_tfidf_per_class.json
+2026-01-12 10:38:22,489 | INFO | [jpetstore-6] DONE semantic pipeline in 0.57s
+2026-01-12 10:38:22,489 | INFO | ✔ Semantic analysis OK for jpetstore-6
+2026-01-12 10:44:03,767 | INFO | 
+▶ Running semantic pipeline for: daytrader
+2026-01-12 10:44:03,768 | INFO | [daytrader] STEP 1: Loading class universe...
+2026-01-12 10:44:03,771 | INFO | [daytrader] Classes loaded: 115
+2026-01-12 10:44:03,772 | INFO | [daytrader] STEP 2: Loading semantic parquet...
+2026-01-12 10:44:03,808 | INFO | [daytrader] Semantic rows: 118 | cols: ['com.ibm.websphere.samples.daytrader.beans.MarketSummaryDataBean', 'com.ibm.websphere.samples.daytrader.beans.RunStatsDataBean', 'com.ibm.websphere.samples.daytrader.direct.KeySequenceDirect', 'com.ibm.websphere.samples.daytrader.direct.TradeDirect', 'com.ibm.websphere.samples.daytrader.ejb3.DTBroker3MDB', 'com.ibm.websphere.samples.daytrader.ejb3.DTStreamer3MDB', 'com.ibm.websphere.samples.daytrader.ejb3.MarketSummarySingleton', 'com.ibm.websphere.samples.daytrader.ejb3.TradeSLSBBean$quotePriceComparator', 'com.ibm.websphere.samples.daytrader.ejb3.TradeSLSBBean', 'com.ibm.websphere.samples.daytrader.ejb3.TradeSLSBLocal']...
+2026-01-12 10:44:03,808 | INFO | [daytrader] Semantic index name: None | index type: <class 'pandas.core.indexes.range.RangeIndex'>
+2026-01-12 10:44:03,808 | INFO | [daytrader] Detected semantic format: WIDE (terms x classes counts matrix)
+2026-01-12 10:44:03,808 | INFO | [daytrader] Building TF-IDF (transformer from counts)...
+2026-01-12 10:44:03,810 | INFO | [daytrader] TF-IDF shape: (115, 118)
+2026-01-12 10:44:03,810 | INFO | [daytrader] Extracting top-10 TF-IDF terms for classes...
+2026-01-12 10:44:03,810 | INFO | [daytrader] TF-IDF[com.ibm.websphere.samples.daytrader.TradeAction] -> 116:0.7298, 117:0.3913, 10:0.3800, 9:0.3800, 114:0.0933, 3:0.0741, 21:0.0563, 23:0.0466
+2026-01-12 10:44:03,811 | INFO | [daytrader] TF-IDF[com.ibm.websphere.samples.daytrader.TradeServices] -> 117:0.6414, 9:0.4736, 10:0.4736, 116:0.3440, 3:0.1052, 114:0.0621, 21:0.0545, 111:0.0300
+2026-01-12 10:44:03,811 | INFO | [daytrader] TF-IDF[com.ibm.websphere.samples.daytrader.beans.MarketSummaryDataBean] -> 0:0.9966, 30:0.0684, 3:0.0328, 7:0.0223, 23:0.0195, 5:0.0082, 8:0.0067, 12:0.0047
+2026-01-12 10:44:03,811 | INFO | [daytrader] TF-IDF[com.ibm.websphere.samples.daytrader.beans.RunStatsDataBean] -> 19:0.7653, 108:0.4856, 1:0.3079, 3:0.2893
+2026-01-12 10:44:03,811 | INFO | [daytrader] TF-IDF[com.ibm.websphere.samples.daytrader.direct.KeySequenceDirect] -> 2:0.9202, 19:0.2867, 92:0.2010, 23:0.1506, 18:0.0769, 21:0.0449, 3:0.0090
+2026-01-12 10:44:03,815 | INFO | [daytrader] Computing semantic similarity (cosine)...
+2026-01-12 10:44:03,815 | INFO | [daytrader] Sim_sem shape: (115, 115) | diag mean: 1.000
+2026-01-12 10:44:03,819 | INFO | [daytrader] Saved intermediates to: E:\hdbscan-new\outputs\daytrader\semantic
+2026-01-12 10:44:03,819 | INFO | [daytrader] Saved TF-IDF top terms per class to: E:\hdbscan-new\outputs\daytrader\semantic\top_tfidf_per_class.json
+2026-01-12 10:44:03,819 | INFO | [daytrader] DONE semantic pipeline in 0.05s
+2026-01-12 10:44:03,819 | INFO | ✔ Semantic analysis OK for daytrader
+2026-01-12 10:59:33,257 | INFO | 
+▶ Running semantic pipeline for: acmeair
+2026-01-12 10:59:33,258 | INFO | [acmeair] STEP 1: Loading class universe...
+2026-01-12 10:59:33,261 | INFO | [acmeair] Classes loaded: 84
+2026-01-12 10:59:33,261 | INFO | [acmeair] STEP 2: Loading semantic parquet...
+2026-01-12 10:59:33,287 | INFO | [acmeair] Semantic rows: 86 | cols: ['com.acmeair.config.AcmeAirConfiguration$ServiceData', 'com.acmeair.config.AcmeAirConfiguration', 'com.acmeair.config.LoaderREST', 'com.acmeair.entities.AirportCodeMapping', 'com.acmeair.entities.Booking', 'com.acmeair.entities.BookingPK', 'com.acmeair.entities.Customer$MemberShipStatus', 'com.acmeair.entities.Customer$PhoneType', 'com.acmeair.entities.Customer', 'com.acmeair.entities.CustomerAddress']...
+2026-01-12 10:59:33,288 | INFO | [acmeair] Semantic index name: None | index type: <class 'pandas.core.indexes.range.RangeIndex'>
+2026-01-12 10:59:33,288 | INFO | [acmeair] Detected semantic format: WIDE (terms x classes counts matrix)
+2026-01-12 10:59:33,288 | INFO | [acmeair] Building TF-IDF (transformer from counts)...
+2026-01-12 10:59:33,289 | INFO | [acmeair] TF-IDF shape: (84, 86)
+2026-01-12 10:59:33,289 | INFO | [acmeair] Extracting top-10 TF-IDF terms for classes...
+2026-01-12 10:59:33,289 | INFO | [acmeair] TF-IDF[com.acmeair.AcmeAirConstants] -> 85:0.6675, 63:0.4450, 1:0.3425, 15:0.3425, 84:0.1973, 31:0.1973, 27:0.1582, 81:0.1377
+2026-01-12 10:59:33,289 | INFO | [acmeair] TF-IDF[com.acmeair.config.AcmeAirConfiguration] -> 65:0.5487, 1:0.5407, 82:0.4325, 34:0.3227, 43:0.2139, 51:0.1112, 27:0.1070, 63:0.1003
+2026-01-12 10:59:33,289 | INFO | [acmeair] TF-IDF[com.acmeair.config.AcmeAirConfiguration$ServiceData] -> (no terms / zero vector)
+2026-01-12 10:59:33,291 | INFO | [acmeair] TF-IDF[com.acmeair.config.LoaderREST] -> 34:0.6371, 69:0.4791, 2:0.4333, 32:0.3169, 16:0.2027, 14:0.0891, 68:0.0821, 66:0.0821
+2026-01-12 10:59:33,291 | INFO | [acmeair] TF-IDF[com.acmeair.entities.AirportCodeMapping] -> (no terms / zero vector)
+2026-01-12 10:59:33,294 | INFO | [acmeair] Computing semantic similarity (cosine)...
+2026-01-12 10:59:33,295 | INFO | [acmeair] Sim_sem shape: (84, 84) | diag mean: 1.000
+2026-01-12 10:59:33,298 | INFO | [acmeair] Saved intermediates to: E:\hdbscan-new\outputs\acmeair\semantic
+2026-01-12 10:59:33,298 | INFO | [acmeair] Saved TF-IDF top terms per class to: E:\hdbscan-new\outputs\acmeair\semantic\top_tfidf_per_class.json
+2026-01-12 10:59:33,298 | INFO | [acmeair] DONE semantic pipeline in 0.04s
+2026-01-12 10:59:33,298 | INFO | ✔ Semantic analysis OK for acmeair
+2026-01-12 11:07:15,592 | INFO | 
+▶ Running semantic pipeline for: plants
+2026-01-12 11:07:15,593 | INFO | [plants] STEP 1: Loading class universe...
+2026-01-12 11:07:15,595 | INFO | [plants] Classes loaded: 39
+2026-01-12 11:07:15,595 | INFO | [plants] STEP 2: Loading semantic parquet...
+2026-01-12 11:07:15,618 | INFO | [plants] Semantic rows: 40 | cols: ['com.ibm.websphere.samples.pbw.ejb.BackOrderMgr', 'com.ibm.websphere.samples.pbw.ejb.CatalogMgr', 'com.ibm.websphere.samples.pbw.ejb.CustomerMgr', 'com.ibm.websphere.samples.pbw.ejb.EMailMessage', 'com.ibm.websphere.samples.pbw.ejb.MailerAppException', 'com.ibm.websphere.samples.pbw.ejb.MailerBean', 'com.ibm.websphere.samples.pbw.ejb.NoSupplierException', 'com.ibm.websphere.samples.pbw.ejb.ResetDBBean', 'com.ibm.websphere.samples.pbw.ejb.ShoppingCartBean', 'com.ibm.websphere.samples.pbw.ejb.ShoppingCartContent']...
+2026-01-12 11:07:15,618 | INFO | [plants] Semantic index name: None | index type: <class 'pandas.core.indexes.range.RangeIndex'>
+2026-01-12 11:07:15,619 | INFO | [plants] Detected semantic format: WIDE (terms x classes counts matrix)
+2026-01-12 11:07:15,619 | INFO | [plants] Building TF-IDF (transformer from counts)...
+2026-01-12 11:07:15,620 | INFO | [plants] TF-IDF shape: (39, 40)
+2026-01-12 11:07:15,620 | INFO | [plants] Extracting top-10 TF-IDF terms for classes...
+2026-01-12 11:07:15,620 | INFO | [plants] TF-IDF[com.ibm.websphere.samples.pbw.ejb.BackOrderMgr] -> 0:0.9218, 29:0.1871, 3:0.1506, 7:0.1423, 2:0.1379, 1:0.1214, 5:0.0840, 35:0.0805
+2026-01-12 11:07:15,620 | INFO | [plants] TF-IDF[com.ibm.websphere.samples.pbw.ejb.CatalogMgr] -> 1:0.9710, 8:0.0984, 0:0.0930, 13:0.0883, 2:0.0809, 34:0.0687, 20:0.0627, 14:0.0472
+2026-01-12 11:07:15,621 | INFO | [plants] TF-IDF[com.ibm.websphere.samples.pbw.ejb.CustomerMgr] -> 2:0.9136, 5:0.1947, 0:0.1894, 1:0.1450, 12:0.1152, 8:0.0969, 32:0.0959, 38:0.0928
+2026-01-12 11:07:15,622 | INFO | [plants] TF-IDF[com.ibm.websphere.samples.pbw.ejb.EMailMessage] -> 3:0.9729, 5:0.2049, 0:0.0854, 17:0.0353, 4:0.0311, 34:0.0220, 39:0.0195, 38:0.0195
+2026-01-12 11:07:15,622 | INFO | [plants] TF-IDF[com.ibm.websphere.samples.pbw.ejb.MailerAppException] -> 4:0.7068, 6:0.6856, 20:0.1382, 5:0.0539, 21:0.0494, 3:0.0387, 39:0.0370, 38:0.0370
+2026-01-12 11:07:15,624 | INFO | [plants] Computing semantic similarity (cosine)...
+2026-01-12 11:07:15,625 | INFO | [plants] Sim_sem shape: (39, 39) | diag mean: 1.000
+2026-01-12 11:07:15,627 | INFO | [plants] Saved intermediates to: E:\hdbscan-new\outputs\plants\semantic
+2026-01-12 11:07:15,628 | INFO | [plants] Saved TF-IDF top terms per class to: E:\hdbscan-new\outputs\plants\semantic\top_tfidf_per_class.json
+2026-01-12 11:07:15,628 | INFO | [plants] DONE semantic pipeline in 0.04s
+2026-01-12 11:07:15,628 | INFO | ✔ Semantic analysis OK for plants

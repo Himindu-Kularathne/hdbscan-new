@@ -5,7 +5,7 @@ DATA_ROOT = PROJECT_ROOT / "data" / "monolithic"
 
 # ===== TEST CONFIG =====
 # Set to repo folder name or None to process all
-TARGET_REPO = "jpetstore-6"   # e.g. "daytrader", "acmeair", None
+TARGET_REPO = "plants"   # e.g. "daytrader", "acmeair", None
 
 # ===== SUBFOLDERS =====
 SEMANTIC_DIR = "semantic_data"
