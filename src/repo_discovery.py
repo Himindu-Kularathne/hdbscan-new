@@ -2,7 +2,6 @@ from pathlib import Path
 from typing import List
 from src.config import DATA_ROOT, TARGET_REPO
 
-
 def discover_repos() -> List[Path]:
     if not DATA_ROOT.exists():
         raise FileNotFoundError(f"Monolithic data folder not found: {DATA_ROOT}")
