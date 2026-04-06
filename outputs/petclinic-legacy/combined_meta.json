@@ -1,0 +1,20 @@
+{
+  "repo": "petclinic-legacy",
+  "alpha": 0.5,
+  "shape": [
+    56,
+    56
+  ],
+  "sem_minmax": [
+    0.0,
+    1.0
+  ],
+  "str_minmax": [
+    0.0,
+    1.0
+  ],
+  "comb_minmax": [
+    0.0,
+    1.0
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "repo": "petclinic-legacy",
+  "num_classes": 56,
+  "tfidf_shape": [
+    56,
+    60
+  ],
+  "sim_sem_shape": [
+    56,
+    56
+  ],
+  "semantic_format": "WIDE",
+  "empty_docs": null,
+  "tfidf_top_k": 10
+}

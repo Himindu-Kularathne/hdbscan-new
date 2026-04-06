@@ -1,17 +1,34 @@
 {
   "repo": "jpetstore-6",
   "params": {
-    "min_cluster_size": 3,
+    "min_cluster_size": 2,
     "min_samples": null,
     "metric": "precomputed"
   },
-  "clusters": {},
+  "clusters": {
+    "0": [
+      "org.mybatis.jpetstore.mapper.CategoryMapper",
+      "org.mybatis.jpetstore.mapper.ItemMapper",
+      "org.mybatis.jpetstore.mapper.LineItemMapper",
+      "org.mybatis.jpetstore.mapper.OrderMapper",
+      "org.mybatis.jpetstore.mapper.ProductMapper",
+      "org.mybatis.jpetstore.mapper.SequenceMapper",
+      "org.mybatis.jpetstore.service.CatalogService",
+      "org.mybatis.jpetstore.web.actions.AbstractActionBean",
+      "org.mybatis.jpetstore.web.actions.AccountActionBean",
+      "org.mybatis.jpetstore.web.actions.CatalogActionBean"
+    ],
+    "1": [
+      "org.mybatis.jpetstore.domain.Cart",
+      "org.mybatis.jpetstore.domain.CartItem",
+      "org.mybatis.jpetstore.service.OrderService",
+      "org.mybatis.jpetstore.web.actions.CartActionBean"
+    ]
+  },
   "noise": [
     "MavenWrapperDownloader",
     "org.mybatis.jpetstore.ScreenTransitionIT",
     "org.mybatis.jpetstore.domain.Account",
-    "org.mybatis.jpetstore.domain.Cart",
-    "org.mybatis.jpetstore.domain.CartItem",
     "org.mybatis.jpetstore.domain.Category",
     "org.mybatis.jpetstore.domain.Item",
     "org.mybatis.jpetstore.domain.LineItem",
@@ -19,20 +36,8 @@
     "org.mybatis.jpetstore.domain.Product",
     "org.mybatis.jpetstore.domain.Sequence",
     "org.mybatis.jpetstore.mapper.AccountMapper",
-    "org.mybatis.jpetstore.mapper.CategoryMapper",
-    "org.mybatis.jpetstore.mapper.ItemMapper",
-    "org.mybatis.jpetstore.mapper.LineItemMapper",
     "org.mybatis.jpetstore.mapper.MapperTestContext",
-    "org.mybatis.jpetstore.mapper.OrderMapper",
-    "org.mybatis.jpetstore.mapper.ProductMapper",
-    "org.mybatis.jpetstore.mapper.SequenceMapper",
     "org.mybatis.jpetstore.service.AccountService",
-    "org.mybatis.jpetstore.service.CatalogService",
-    "org.mybatis.jpetstore.service.OrderService",
-    "org.mybatis.jpetstore.web.actions.AbstractActionBean",
-    "org.mybatis.jpetstore.web.actions.AccountActionBean",
-    "org.mybatis.jpetstore.web.actions.CartActionBean",
-    "org.mybatis.jpetstore.web.actions.CatalogActionBean",
     "org.mybatis.jpetstore.web.actions.OrderActionBean"
   ]
 }
